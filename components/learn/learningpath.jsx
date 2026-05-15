@@ -118,7 +118,7 @@ function StepCard({ step, index, total, delay }) {
           {step.icon}
         </div>
         {!isLast && (
-          <div className="w-px flex-1 mt-2 mb-0 dark:text-white" style={{ background: "linear-gradient(to bottom, #E0E0E0, transparent)", minHeight: 32 }} />
+          <div className="w-px flex-1 mt-2 mb-0 dark:text-white w-px bg-gradient-to-b from-gray-400 to-transparent dark:from-gray-300 dark:to-transparent" style={{ minHeight: 32 }} />
         )}
       </div>
 
