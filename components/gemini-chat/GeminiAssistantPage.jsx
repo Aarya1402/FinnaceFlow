@@ -352,6 +352,23 @@ export default function ArthSathiPage() {
       const data = await res.json();
       setIsTyping(false);
 
+      if (res.status === 401) {
+        const signInMsg = {
+          id: nextId(),
+          role: "assistant",
+          content: [
+            {
+              type: "text",
+              value:
+                "Please sign in to use ArthSathi. Your session keeps the chat secure and protects our AI quota.",
+            },
+          ],
+          time: getTime(),
+        };
+        setMessages((prev) => [...prev, signInMsg]);
+        return;
+      }
+
       const aiId = nextId();
       const aiMsg = {
         id: aiId,

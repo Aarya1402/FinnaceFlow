@@ -28,8 +28,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const xpEarned =
-    parsed.data.xpEarned ?? Math.max(10, parsed.data.score * 10);
+  const xpEarned = Math.min(500, Math.max(10, parsed.data.score * 10));
 
   const attempt = await db.$transaction(async (tx) => {
     const createdAttempt = await tx.quizAttempt.create({

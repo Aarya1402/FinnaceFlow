@@ -390,7 +390,9 @@ async function ensureDashboardSeed(user: SessionUser) {
   }
 
   const seedData = buildSeedData(user);
+  seededUserCache.add(user.id);
 
+  try {
   await db.$transaction(async (tx) => {
     const counts = await tx.user.findUnique({
       where: { id: user.id! },
@@ -454,8 +456,10 @@ async function ensureDashboardSeed(user: SessionUser) {
       });
     }
   });
-
-  seededUserCache.add(user.id);
+  } catch (error) {
+    seededUserCache.delete(user.id);
+    throw error;
+  }
 
   return seedData;
 }
@@ -678,7 +682,10 @@ function mapDashboardData(input: {
   const currentValue = latestPortfolioPoint.value;
   const investedValue = latestPortfolioPoint.invested;
   const totalReturn = currentValue - investedValue;
-  const totalReturnPct = Number(((totalReturn / investedValue) * 100).toFixed(1));
+  const totalReturnPct =
+    investedValue > 0
+      ? Number(((totalReturn / investedValue) * 100).toFixed(1))
+      : 0;
 
   const goals = (input.goals ?? []).map((goal) => ({
     id: goal.id || goal.name.toLowerCase().replace(/\s+/g, "-"),
