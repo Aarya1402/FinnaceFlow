@@ -58,7 +58,16 @@ function sanitizeHistory(history: unknown) {
 
 export async function POST(req: NextRequest) {
   try {
-    const session = await getServerSession().catch(() => null);
+    let session;
+    try {
+      session = await getServerSession();
+    } catch (sessionError) {
+      console.error("Session lookup failed:", sessionError);
+      return NextResponse.json(
+        { error: "Unable to validate session right now" },
+        { status: 500 }
+      );
+    }
 
     if (!session?.user?.id) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -124,23 +133,18 @@ export async function POST(req: NextRequest) {
       "Something went wrong while connecting to the AI. Please try again in a moment.";
 
     if (error instanceof Error) {
-      if (
-        error.message.includes("API_KEY") ||
-        error.message.includes("API key")
-      ) {
+      const msg = error.message.toLowerCase();
+      if (msg.includes("api_key") || msg.includes("api key")) {
         errorMessage =
           "Invalid API key. Please check your GEMINI_API_KEY configuration.";
       } else if (
-        error.message.includes("429") ||
-        error.message.includes("quota") ||
-        error.message.includes("Too Many Requests")
+        msg.includes("429") ||
+        msg.includes("quota") ||
+        msg.includes("too many requests")
       ) {
         errorMessage =
           "The AI is receiving too many requests right now. Please wait a few seconds and try again.";
-      } else if (
-        error.message.includes("404") ||
-        error.message.includes("not found")
-      ) {
+      } else if (msg.includes("404") || msg.includes("not found")) {
         errorMessage =
           "The AI model is currently unavailable. Please try again shortly.";
       }

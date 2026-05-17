@@ -366,34 +366,33 @@ async function ensureDashboardSeed(user: SessionUser) {
   if (seededUserCache.has(user.id)) {
     return null;
   }
-
-  const existingData = await db.user.findUnique({
-    where: { id: user.id },
-    select: {
-      portfolioPoints: { select: { id: true }, take: 1 },
-      dashboardGoals: { select: { id: true }, take: 1 },
-      learningModules: { select: { id: true }, take: 1 },
-      quizAttempts: { select: { id: true }, take: 1 },
-      activityFeed: { select: { id: true }, take: 1 },
-    },
-  });
-
-  if (
-    existingData?.portfolioPoints.length &&
-    existingData.dashboardGoals.length &&
-    existingData.learningModules.length &&
-    existingData.quizAttempts.length &&
-    existingData.activityFeed.length
-  ) {
-    seededUserCache.add(user.id);
-    return null;
-  }
-
-  const seedData = buildSeedData(user);
   seededUserCache.add(user.id);
 
   try {
-  await db.$transaction(async (tx) => {
+    const existingData = await db.user.findUnique({
+      where: { id: user.id },
+      select: {
+        portfolioPoints: { select: { id: true }, take: 1 },
+        dashboardGoals: { select: { id: true }, take: 1 },
+        learningModules: { select: { id: true }, take: 1 },
+        quizAttempts: { select: { id: true }, take: 1 },
+        activityFeed: { select: { id: true }, take: 1 },
+      },
+    });
+
+    if (
+      existingData?.portfolioPoints.length &&
+      existingData.dashboardGoals.length &&
+      existingData.learningModules.length &&
+      existingData.quizAttempts.length &&
+      existingData.activityFeed.length
+    ) {
+      return null;
+    }
+
+    const seedData = buildSeedData(user);
+
+    await db.$transaction(async (tx) => {
     const counts = await tx.user.findUnique({
       where: { id: user.id! },
       select: {
@@ -455,13 +454,12 @@ async function ensureDashboardSeed(user: SessionUser) {
         })),
       });
     }
-  });
+    });
+    return seedData;
   } catch (error) {
     seededUserCache.delete(user.id);
     throw error;
   }
-
-  return seedData;
 }
 
 export async function getDashboardData(user: SessionUser) {

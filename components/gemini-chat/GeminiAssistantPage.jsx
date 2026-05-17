@@ -365,7 +365,18 @@ export default function ArthSathiPage() {
           ],
           time: getTime(),
         };
-        setMessages((prev) => [...prev, signInMsg]);
+        setMessages((prev) => {
+          const last = prev[prev.length - 1];
+          const lastText = last?.content?.[0]?.value;
+          if (
+            last?.role === "assistant" &&
+            typeof lastText === "string" &&
+            lastText.startsWith("Please sign in to use ArthSathi.")
+          ) {
+            return prev;
+          }
+          return [...prev, signInMsg];
+        });
         return;
       }
 
