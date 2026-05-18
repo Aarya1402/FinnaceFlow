@@ -25,6 +25,28 @@ export default function VideosPage() {
   return (
     <div className="min-h-screen bg-[#FAFAF8] dark:bg-black px-6 py-14">
       <div className="max-w-6xl mx-auto">
+
+        <Link
+          href="/learn#watch"
+          className="inline-flex items-center gap-2 mb-8 text-[14px] text-[#555] dark:text-[#aaa] hover:text-black dark:hover:text-white transition-colors"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <path
+              d="M10 3L5 8L10 13"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+
+          Back
+        </Link>
         
         <div className="mb-10 flex items-start justify-between gap-4 flex-wrap">
             <div>

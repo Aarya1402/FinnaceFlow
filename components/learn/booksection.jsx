@@ -144,7 +144,7 @@ export default function BooksSection() {
   const headerRef = useScrollReveal();
 
   return (
-    <section className="py-20 px-6 bg-[#FAFAF8] dark:bg-[#0A0A0A]">
+    <section id="books" className="py-20 px-6 bg-[#FAFAF8] dark:bg-[#0A0A0A]">
       <div className="max-w-6xl mx-auto">
         <div ref={headerRef} className="flex items-end justify-between mb-10 flex-wrap gap-5">
           <div>

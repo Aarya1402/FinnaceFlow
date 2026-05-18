@@ -286,7 +286,7 @@ export default function BlogSection() {
             href="/learn/articles"
             className="text-[13.5px] text-[#555] dark:text-[#aaa] hover:text-black dark:hover:text-white flex items-center gap-1"
           >
-            View all →
+            View all articles→
           </Link>
         </div>
 

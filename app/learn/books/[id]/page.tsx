@@ -1,3 +1,7 @@
+import { ThemeToggle } from "@/components/theme-toggle";
+import Link from "next/link";
+
+
 const BOOK_DETAILS = {
   1: {
     title: "The Psychology of Money",
@@ -40,6 +44,32 @@ export default async function BookSummaryPage({
   return (
     <div className="min-h-screen bg-[#FAFAF8] dark:bg-black px-6 py-14">
       <div className="max-w-3xl mx-auto">
+      <div className="flex items-center justify-between gap-4 mb-10 flex-wrap">
+          <Link
+            href="/learn/books"
+            className="inline-flex items-center gap-2 text-[14px] text-[#555] dark:text-[#aaa] hover:text-black dark:hover:text-white transition-colors"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M10 3L5 8L10 13"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+
+            Back to books
+          </Link>
+
+          <ThemeToggle />
+        </div>
+
         <h1 className="text-4xl font-bold dark:text-white mb-3">
           {book.title}
         </h1>
