@@ -6,9 +6,9 @@ const bentoCards = [
     icon: (
       <svg suppressHydrationWarning width="18" height="18" viewBox="0 0 18 18" fill="none">
         <rect suppressHydrationWarning x="2" y="2" width="6" height="6" rx="1.5" fill="#C9A84C" opacity="0.9"/>
-        <rect suppressHydrationWarning x="10" y="2" width="6" height="6" rx="1.5" fill="#0F0F0F" opacity="0.12"/>
-        <rect suppressHydrationWarning x="2" y="10" width="6" height="6" rx="1.5" fill="#0F0F0F" opacity="0.08"/>
-        <rect suppressHydrationWarning x="10" y="10" width="6" height="6" rx="1.5" fill="#0F0F0F" opacity="0.05"/>
+        <rect suppressHydrationWarning x="10" y="2" width="6" height="6" rx="1.5" fill="#8B7340" opacity="0.5"/>
+        <rect suppressHydrationWarning x="2" y="10" width="6" height="6" rx="1.5" fill="#8B7340" opacity="0.4"/>
+        <rect suppressHydrationWarning x="10" y="10" width="6" height="6" rx="1.5" fill="#8B7340" opacity="0.3"/>
       </svg>
     ),
     title: "Finance Quiz",
@@ -18,7 +18,7 @@ const bentoCards = [
   {
     icon: (
       <svg suppressHydrationWarning width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path suppressHydrationWarning d="M3 13L6.5 9L9.5 11L13.5 6L15 7.5" stroke="#0F0F0F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path suppressHydrationWarning d="M3 13L6.5 9L9.5 11L13.5 6L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         <circle suppressHydrationWarning cx="15" cy="5" r="1.5" fill="#C9A84C"/>
       </svg>
     ),
@@ -28,10 +28,10 @@ const bentoCards = [
   {
     icon: (
       <svg suppressHydrationWarning width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <circle suppressHydrationWarning cx="9" cy="9" r="6.5" stroke="#0F0F0F" strokeWidth="1.3" opacity="0.2"/>
+        <circle suppressHydrationWarning cx="9" cy="9" r="6.5" stroke="currentColor" strokeWidth="1.3" opacity="0.2"/>
         <path suppressHydrationWarning d="M9 9L9 4.5" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round"/>
-        <path suppressHydrationWarning d="M9 9L13 11" stroke="#0F0F0F" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle suppressHydrationWarning cx="9" cy="9" r="1.5" fill="#0F0F0F"/>
+        <path suppressHydrationWarning d="M9 9L13 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        <circle suppressHydrationWarning cx="9" cy="9" r="1.5" fill="currentColor"/>
       </svg>
     ),
     title: "Financial Score",
@@ -40,7 +40,7 @@ const bentoCards = [
   {
     icon: (
       <svg suppressHydrationWarning width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path suppressHydrationWarning d="M3 5H15M3 9H11M3 13H13" stroke="#0F0F0F" strokeWidth="1.4" strokeLinecap="round"/>
+        <path suppressHydrationWarning d="M3 5H15M3 9H11M3 13H13" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
       </svg>
     ),
     title: "Smart Blogs",
@@ -50,8 +50,8 @@ const bentoCards = [
     icon: (
       <svg suppressHydrationWarning width="18" height="18" viewBox="0 0 18 18" fill="none">
         <rect suppressHydrationWarning x="3" y="11" width="3" height="4" rx="0.8" fill="#C9A84C"/>
-        <rect suppressHydrationWarning x="7.5" y="8" width="3" height="7" rx="0.8" fill="#0F0F0F" opacity="0.3"/>
-        <rect suppressHydrationWarning x="12" y="5" width="3" height="10" rx="0.8" fill="#0F0F0F"/>
+        <rect suppressHydrationWarning x="7.5" y="8" width="3" height="7" rx="0.8" fill="currentColor" opacity="0.3"/>
+        <rect suppressHydrationWarning x="12" y="5" width="3" height="10" rx="0.8" fill="currentColor"/>
       </svg>
     ),
     title: "Portfolio Insights",
@@ -163,7 +163,9 @@ export default function Hero() {
               className="bento-card p-5 rounded-2xl bg-[#F8F8F6] dark:bg-[#1a1a1a] border border-[#EBEBEB] dark:border-[#2a2a2a] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
               style={{ minHeight: 140 }}
             >
-              <div className="mb-3">{bentoCards[1].icon}</div>
+              <div className="mb-3 text-[#0F0F0F] dark:text-[#E5E5E5]">
+  {bentoCards[1].icon}
+</div>
               <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em] mb-1">{bentoCards[1].title}</div>
               <div className="text-[12.5px] text-[#888] dark:text-[#777]">{bentoCards[1].desc}</div>
               {/* Mini sparkline */}
@@ -181,7 +183,9 @@ export default function Hero() {
               <div className="flex items-center justify-between">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <div>{bentoCards[2].icon}</div>
+                   <div className="text-[#0F0F0F] dark:text-[#E5E5E5]">
+  {bentoCards[2].icon}
+</div>
                     <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em]">{bentoCards[2].title}</div>
                   </div>
                   <div className="text-[12.5px] text-[#888] dark:text-[#777]">{bentoCards[2].desc}</div>
@@ -200,7 +204,9 @@ export default function Hero() {
             <div
               className="bento-card p-5 rounded-2xl border border-[#EBEBEB] dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
             >
-              <div className="mb-3">{bentoCards[3].icon}</div>
+              <div className="mb-3 text-[#0F0F0F] dark:text-[#E5E5E5]">
+  {bentoCards[3].icon}
+</div>
               <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em] mb-1">{bentoCards[3].title}</div>
               <div className="text-[12.5px] text-[#888] dark:text-[#777]">{bentoCards[3].desc}</div>
             </div>
@@ -209,7 +215,9 @@ export default function Hero() {
             <div
               className="bento-card p-5 rounded-2xl bg-[#F5F1E8] dark:bg-[#2a2518] border border-[#E8DFC0] dark:border-[#4a3f28] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
             >
-              <div className="mb-3">{bentoCards[4].icon}</div>
+              <div className="mb-3 text-[#0F0F0F] dark:text-[#E5E5E5]">
+  {bentoCards[4].icon}
+</div>
               <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em] mb-1">{bentoCards[4].title}</div>
               <div className="text-[12.5px] text-[#8B7340] dark:text-[#C9A84C]">{bentoCards[4].desc}</div>
             </div>
