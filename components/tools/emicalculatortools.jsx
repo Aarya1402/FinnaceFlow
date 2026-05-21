@@ -35,6 +35,7 @@ function fmt(n) {
 }
 
 export default function EmiCalculator() {
+  const [copied, setCopied] = useState(false);
   const [loan, setLoan] = useState(2000000);
   const [rate, setRate] = useState(8.5);
   const [tenure, setTenure] = useState(20);
@@ -48,7 +49,26 @@ export default function EmiCalculator() {
     const interestPct = Math.round((totalInterest / totalPayment) * 100);
     return { emi: Math.round(emi), totalPayment: Math.round(totalPayment), totalInterest: Math.round(totalInterest), interestPct };
   }, [loan, rate, tenure]);
+        const handleCopy = async () => {
+  const resultText = `
+Monthly EMI: ${fmt(emi)}
+Loan Amount: ${fmt(loan)}
+Interest Payable: ${fmt(totalInterest)}
+Total Payment: ${fmt(totalPayment)}
+  `;
 
+  try {
+    await navigator.clipboard.writeText(resultText);
+
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  } catch (error) {
+    console.error("Copy failed", error);
+  }
+};
   return (
     <section id="emi-calc" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
@@ -78,6 +98,14 @@ export default function EmiCalculator() {
                     </button>
                   ))}
                 </div>
+                <div className="mt-4 flex justify-center">
+  <button
+    onClick={handleCopy}
+    className="rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 transition"
+  >
+    {copied ? "Copied!" : "Copy Result"}
+  </button>
+</div>
               </div>
             </div>
           </div>
@@ -125,6 +153,7 @@ export default function EmiCalculator() {
     </section>
   );
 }
+
 
 function SectionLabel({ number, label }) {
   return (
