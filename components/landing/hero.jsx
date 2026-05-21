@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 
 const bentoCards = [
   {
@@ -14,6 +15,7 @@ const bentoCards = [
     title: "Finance Quiz",
     desc: "Daily bite-sized learning",
     accent: true,
+    href: "/quiz",
   },
   {
     icon: (
@@ -24,6 +26,7 @@ const bentoCards = [
     ),
     title: "SIP Tracker",
     desc: "Mutual fund investments",
+    href: "/sip-tracker",
   },
   {
     icon: (
@@ -36,6 +39,7 @@ const bentoCards = [
     ),
     title: "Financial Score",
     desc: "Your financial strength",
+    href: "/coming-soon",
   },
   {
     icon: (
@@ -45,6 +49,7 @@ const bentoCards = [
     ),
     title: "Smart Blogs",
     desc: "Practical knowledge",
+    href: "/coming-soon",
   },
   {
     icon: (
@@ -56,10 +61,12 @@ const bentoCards = [
     ),
     title: "Portfolio Insights",
     desc: "Visual growth charts",
+    href: "/coming-soon",
   },
 ];
 
 export default function Hero() {
+  const router = useRouter();
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -75,6 +82,10 @@ export default function Hero() {
       }, 600 + i * 80);
     });
   }, []);
+
+  const handleCardClick = (href) => {
+    router.push(href);
+  };
 
   return (
     <section className="pt-32 pb-20 px-6 max-w-6xl mx-auto">
@@ -151,6 +162,7 @@ export default function Hero() {
             <div
               className="bento-card col-span-1 row-span-1 p-5 rounded-2xl bg-[#0F0F0F] dark:bg-white text-white dark:text-[#0F0F0F] cursor-pointer hover:-translate-y-0.5 transition-all duration-200"
               style={{ minHeight: 140 }}
+              onClick={() => handleCardClick(bentoCards[0].href)}
             >
               <div className="mb-3">{bentoCards[0].icon}</div>
               <div className="text-[15px] font-semibold tracking-[-0.02em] mb-1">{bentoCards[0].title}</div>
@@ -162,10 +174,11 @@ export default function Hero() {
             <div
               className="bento-card p-5 rounded-2xl bg-[#F8F8F6] dark:bg-[#1a1a1a] border border-[#EBEBEB] dark:border-[#2a2a2a] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
               style={{ minHeight: 140 }}
+              onClick={() => handleCardClick(bentoCards[1].href)}
             >
               <div className="mb-3 text-[#0F0F0F] dark:text-[#E5E5E5]">
-  {bentoCards[1].icon}
-</div>
+                {bentoCards[1].icon}
+              </div>
               <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em] mb-1">{bentoCards[1].title}</div>
               <div className="text-[12.5px] text-[#888] dark:text-[#777]">{bentoCards[1].desc}</div>
               {/* Mini sparkline */}
@@ -179,13 +192,14 @@ export default function Hero() {
             {/* Health Score - wider */}
             <div
               className="bento-card col-span-2 p-5 rounded-2xl border border-[#EBEBEB] dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+              onClick={() => handleCardClick(bentoCards[2].href)}
             >
               <div className="flex items-center justify-between">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                   <div className="text-[#0F0F0F] dark:text-[#E5E5E5]">
-  {bentoCards[2].icon}
-</div>
+                    <div className="text-[#0F0F0F] dark:text-[#E5E5E5]">
+                      {bentoCards[2].icon}
+                    </div>
                     <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em]">{bentoCards[2].title}</div>
                   </div>
                   <div className="text-[12.5px] text-[#888] dark:text-[#777]">{bentoCards[2].desc}</div>
@@ -203,10 +217,11 @@ export default function Hero() {
             {/* Smart Blogs */}
             <div
               className="bento-card p-5 rounded-2xl border border-[#EBEBEB] dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+              onClick={() => handleCardClick(bentoCards[3].href)}
             >
               <div className="mb-3 text-[#0F0F0F] dark:text-[#E5E5E5]">
-  {bentoCards[3].icon}
-</div>
+                {bentoCards[3].icon}
+              </div>
               <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em] mb-1">{bentoCards[3].title}</div>
               <div className="text-[12.5px] text-[#888] dark:text-[#777]">{bentoCards[3].desc}</div>
             </div>
@@ -214,10 +229,11 @@ export default function Hero() {
             {/* Portfolio */}
             <div
               className="bento-card p-5 rounded-2xl bg-[#F5F1E8] dark:bg-[#2a2518] border border-[#E8DFC0] dark:border-[#4a3f28] cursor-pointer hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
+              onClick={() => handleCardClick(bentoCards[4].href)}
             >
               <div className="mb-3 text-[#0F0F0F] dark:text-[#E5E5E5]">
-  {bentoCards[4].icon}
-</div>
+                {bentoCards[4].icon}
+              </div>
               <div className="text-[15px] font-semibold text-[#0F0F0F] dark:text-white tracking-[-0.02em] mb-1">{bentoCards[4].title}</div>
               <div className="text-[12.5px] text-[#8B7340] dark:text-[#C9A84C]">{bentoCards[4].desc}</div>
             </div>
