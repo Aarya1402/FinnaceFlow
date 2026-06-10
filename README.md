@@ -1,5 +1,4 @@
-
-# Finnace Flow 
+# Finance Flow
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
@@ -8,139 +7,91 @@
 [![Gemini AI](https://img.shields.io/badge/Gemini_AI-Powered-8E75B2?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-22c55e?style=for-the-badge&logo=vercel&logoColor=white)](https://finnanceflow.buildwithyash.com)
 
-### 🚀 Learn Finance. Track Goals. Make Smarter Decisions.
-AI-powered personal finance platform combining education, planning, and intelligent assistance.
+### Learn Finance. Track Goals. Make Smarter Decisions.
 
+AI-powered personal finance platform combining education, planning, and intelligent assistance — built and maintained as a community open-source project with **65+ merged pull requests from contributors**.
 
-
+**Live:** [finnanceflow.buildwithyash.com](https://finnanceflow.buildwithyash.com)
 
 ## 🤔 Problem
 
-Financial literacy is low among students and young professionals.
+Financial literacy is low among students and young professionals. Most platforms:
 
-Most platforms:
-- Teach theory without practical usage.
-  
-- Provide tools without explanation.
-
-- Lack personalized financial guidance.
-
+- Teach theory without practical usage
+- Provide tools without explanation
+- Lack personalized financial guidance
 
 ## 💡 Solution
+
 Finance Flow integrates learning, tools, and AI into one platform:
 
-- 📚 Interactive learning (quizzes + articles).
- 
-- 🤖 AI-powered chatbot (Gemini).
-
-- 📊 Financial calculators.
-
-- 🎯 Goal tracking system.
+- 📚 Interactive learning (quizzes + articles)
+- 🤖 AI-powered chatbot (Gemini)
+- 📊 Financial calculators
+- 🎯 Goal tracking system
 
 ## 🚀 Features
 
-### 🧠 1. Finance Quiz (Learn by Doing)
-•Interactive quizzes to test and improve your financial knowledge.
-
-•Covers topics like savings, investments, loans, and budgeting.
-
-•Instant feedback to reinforce learning.
-
+### 🧠 1. Finance Quiz — Learn by Doing
+- Interactive quizzes to test and improve your financial knowledge
+- Covers savings, investments, loans, and budgeting
+- Instant feedback to reinforce learning
 
 ### 🤖 2. AI Finance Chatbot (Powered by Gemini)
-
-•Ask any finance-related question.
-
-•Get real-time, easy-to-understand explanations.
-
-•Helps beginners and intermediate users make informed decisions
+- Ask any finance-related question
+- Real-time, easy-to-understand explanations
+- Helps beginners make informed decisions
 
 ### 📊 3. Financial Calculators
-
-A suite of tools to make better financial decisions:
-•💰 SIP Calculator → Estimate future returns.
-
-•🏦 Loan Calculator → EMI, interest breakdown.
-
-•🎯 Goal Planner → Plan savings for specific goals.
-
+- 💰 **SIP Calculator** — estimate future returns
+- 🏦 **Loan Calculator** — EMI and interest breakdown
+- 🎯 **Goal Planner** — plan savings for specific goals
 
 ### 🎯 4. Goal Tracker
-
-•Set financial goals (e.g., buy a bike, build emergency fund).
-
-•Track progress over time.
-
-•Visualize how much you’ve achieved vs remaining.
-
+- Set financial goals (buy a bike, build an emergency fund)
+- Track progress over time
+- Visualize achieved vs. remaining
 
 ### 📚 5. Learn Hub
-
-•Curated finance articles
-•Beginner → advanced topics
-•Learn concepts like:
-    Investing
-    Budgeting
-    Mutual funds
-    Stock market basics
-<!-- ## 🛠️ Tech Stack
-
-•Frontend: Next.js / React
-•Backend: Node.js / API routes
-•Database:  PostgreSQL 
-•AI Integration: Gemini API
-•Authentication: Better-auth -->
+- Curated finance articles from beginner to advanced
+- Topics: investing, budgeting, mutual funds, stock market basics
 
 ## 🛠️ Tech Stack
 
-### Frontend  
-- Next.js
-- React
-- Tailwind CSS
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Next.js 15, React, Tailwind CSS |
+| Backend | Node.js, Next.js API routes |
+| Database | PostgreSQL with Prisma ORM |
+| Auth | Better Auth |
+| AI | Gemini API |
 
-### Backend
-- Node.js
-- API Routes
+## ⚡ Getting Started
 
-### Database
-- PostgreSQL 
-
-### AI
-- Gemini API
-
-## 🎯 Use Case
-Finance Flow8 is built for:•
-
-•Students learning personal finance.
-
-•Beginners starting their investment journey.
-
-•Anyone who wants to manage money smarter 
-## 📌 Future Improvements
-. 📈 Real-time stock tracking
-
-•🧾 Expense tracking system.
-
-•🔔 Smart financial reminders.
-
-•🧠 Personalized AI financial planning
-## ⚡ Getting Started 
 ```bash
-git clone https://github.com/YASHSHARMAOFFICIALLY/finance-flow.git
-
-cd finance-flow
-
+git clone https://github.com/YASHSHARMAOFFICIALLY/FinanceFlow.git
+cd FinanceFlow
 npm install
-
 npm run dev
 ```
+
+Create a `.env` from `.env.example` with your PostgreSQL connection string and Gemini API key before running.
+
 ## 🤝 Contributing
 
-Contributions are welcome! If you'd like to improve the UI or add features like mnemonic validation, feel free to fork the repo and submit a pull request.
+Finance Flow is actively maintained and contributor-friendly — **65+ community pull requests merged** so far. Check the [open issues](https://github.com/YASHSHARMAOFFICIALLY/FinanceFlow/issues), pick one (or propose a feature), and submit a PR. First-time contributors welcome.
 
+## 📌 Roadmap
 
-## ⭐ Star the Repo!
+- 📈 Real-time stock tracking
+- 🧾 Expense tracking system
+- 🔔 Smart financial reminders
+- 🧠 Personalized AI financial planning
 
+## 📄 License
 
-If you find this project useful and would like to support the project, please consider giving it a ⭐ star on GitHub! Your support helps us grow and improve. Thank you! 🙌
+MIT — see [LICENSE](LICENSE).
 
+## ⭐ Support
+
+If you find this project useful, consider giving it a star — it helps the project grow and reach more contributors.
