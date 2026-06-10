@@ -38,7 +38,7 @@ export default async function ArticlePage({
   const { id } = await params;
 
   const article =
-    ARTICLE_DETAILS[id as keyof typeof ARTICLE_DETAILS];
+    ARTICLE_DETAILS[id as unknown as keyof typeof ARTICLE_DETAILS];
 
   if (!article) {
     return (

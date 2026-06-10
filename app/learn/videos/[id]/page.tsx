@@ -29,7 +29,7 @@ export default async function VideoDetailPage({
   const { id } = await params;
 
   const video =
-    VIDEO_DETAILS[id as keyof typeof VIDEO_DETAILS];
+    VIDEO_DETAILS[id as unknown as keyof typeof VIDEO_DETAILS];
 
   if (!video) {
     return (

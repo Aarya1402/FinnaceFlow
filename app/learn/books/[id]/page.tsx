@@ -31,7 +31,7 @@ export default async function BookSummaryPage({
   const { id } = await params;
 
   const book =
-    BOOK_DETAILS[id as keyof typeof BOOK_DETAILS];
+    BOOK_DETAILS[id as unknown as keyof typeof BOOK_DETAILS];
 
   if (!book) {
     return (

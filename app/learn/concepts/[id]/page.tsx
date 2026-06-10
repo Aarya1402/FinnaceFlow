@@ -59,7 +59,7 @@ export default async function ConceptPage({
   const { id } = await params;
 
   const concept =
-    CONCEPT_DETAILS[id as keyof typeof CONCEPT_DETAILS];
+    CONCEPT_DETAILS[id as unknown as keyof typeof CONCEPT_DETAILS];
 
   if (!concept) {
     return (
