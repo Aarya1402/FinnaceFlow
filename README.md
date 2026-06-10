@@ -75,7 +75,7 @@ npm install
 npm run dev
 ```
 
-Create a `.env` from `.env.example` with your PostgreSQL connection string and Gemini API key before running.
+Create a `.env` file with your PostgreSQL connection string and Gemini API key before running.
 
 ## 🤝 Contributing
 
