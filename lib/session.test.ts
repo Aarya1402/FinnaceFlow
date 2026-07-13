@@ -20,7 +20,7 @@ describe('getServerSession', () => {
     (headers as jest.Mock).mockResolvedValue(mockHeaders);
     
     const mockSession = { user: { name: 'Test' } };
-    (auth.api.getSession as jest.Mock).mockResolvedValue(mockSession);
+    (auth.api.getSession as unknown as jest.Mock).mockResolvedValue(mockSession);
 
     const session = await getServerSession();
     
