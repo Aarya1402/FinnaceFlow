@@ -64,7 +64,7 @@ describe('Dashboard Page', () => {
 
   it('renders correctly with authenticated user', async () => {
     const mockSession = { user: { id: 'user1', name: 'John Doe', email: 'john@test.com' } };
-    (auth.api.getSession as jest.Mock).mockResolvedValue(mockSession);
+    (auth.api.getSession as unknown as jest.Mock).mockResolvedValue(mockSession);
 
     // Because it's an async component, we await its render
     const Page = await DashboardPage();
@@ -83,7 +83,7 @@ describe('Dashboard Page', () => {
   });
 
   it('falls back to mock user when unauthenticated', async () => {
-    (auth.api.getSession as jest.Mock).mockRejectedValue(new Error('No session'));
+    (auth.api.getSession as unknown as jest.Mock).mockRejectedValue(new Error('No session'));
 
     const Page = await DashboardPage();
     render(Page);
