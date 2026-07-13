@@ -8,7 +8,7 @@ jest.mock('next-themes', () => ({
 
 describe('SidebarAccountItems', () => {
   it('renders theme toggle and support links', () => {
-    useTheme.mockReturnValue({ theme: 'light', setTheme: jest.fn() });
+    (useTheme as jest.Mock).mockReturnValue({ theme: 'light', setTheme: jest.fn() });
     render(<SidebarAccountItems />);
     
     expect(screen.getByText('Theme')).toBeInTheDocument();
@@ -17,10 +17,10 @@ describe('SidebarAccountItems', () => {
 
   it('toggles theme on click', () => {
     const mockSetTheme = jest.fn();
-    useTheme.mockReturnValue({ theme: 'light', setTheme: mockSetTheme });
+    (useTheme as jest.Mock).mockReturnValue({ theme: 'light', setTheme: mockSetTheme });
     render(<SidebarAccountItems />);
     
-    const themeButton = screen.getByText('Theme').closest('button');
+    const themeButton = screen.getByText('Theme').closest('button')!;
     fireEvent.click(themeButton);
     
     expect(mockSetTheme).toHaveBeenCalledWith('dark');
@@ -28,10 +28,10 @@ describe('SidebarAccountItems', () => {
 
   it('toggles theme to light if currently dark', () => {
     const mockSetTheme = jest.fn();
-    useTheme.mockReturnValue({ theme: 'dark', setTheme: mockSetTheme });
+    (useTheme as jest.Mock).mockReturnValue({ theme: 'dark', setTheme: mockSetTheme });
     render(<SidebarAccountItems />);
     
-    const themeButton = screen.getByText('Theme').closest('button');
+    const themeButton = screen.getByText('Theme').closest('button')!;
     fireEvent.click(themeButton);
     
     expect(mockSetTheme).toHaveBeenCalledWith('light');
