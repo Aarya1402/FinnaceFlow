@@ -12,6 +12,10 @@ jest.mock('./Assisanthero', () => () => <div data-testid="assistant-hero" />);
 jest.mock('./Suggestedprompt', () => () => <div data-testid="suggested-prompts" />);
 
 describe('ChatLayout Component', () => {
+  beforeAll(() => {
+    window.HTMLElement.prototype.scrollIntoView = jest.fn();
+  });
+
   it('renders AssistantHero and SuggestedPrompts when there are no messages', () => {
     render(<ChatLayout messages={[]} isTyping={false} />);
     
